@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulación de Descarga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        #status {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Advertencia!</h1>
+    <p id="status">Se están descargando datos...</p>
+    <p>Por favor, cierra esta ventana si no autorizaste esta acción.</p>
+    <script>
+        let progress = 0;
+        let statusText = document.getElementById("status");
+        setInterval(() => {
+            progress += Math.floor(Math.random() * 10) + 1; // Incremento aleatorio
+            if (progress >= 100) {
+                statusText.textContent = "¡Descarga completada!";
+                statusText.style.color = "green";
+            } else {
+                statusText.textContent = `Descargando... ${progress}%`;
+            }
+        }, 500); // Cada medio segundo
+    </script>
+</body>
+</html>
